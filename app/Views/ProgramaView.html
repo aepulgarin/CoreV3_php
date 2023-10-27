@@ -1,0 +1,138 @@
+<h1 class="mb-3 h3 align-middle">Programas</h1>
+<div class="tab" id="tab-programa">
+	<ul class="nav nav-tabs" role="tablist">
+		<li class="nav-item" role="presentation">
+			<a class="nav-link active" data-bs-toggle="tab" href="#tab-1" aria-selected="true" role="tab"><i
+					data-feather='list'></i> Listado</a>
+		</li>
+		<li class="nav-item" role="presentation">
+			<a class="nav-link" data-bs-toggle="tab" href="#tab-2" aria-selected="false" role="tab"
+			   tabindex="-1"><i data-feather='edit'></i> Editar</a>
+		</li>
+		<li class="nav-item" role="presentation">
+			<a class="nav-link" data-bs-toggle="tab" href="#tab-3" aria-selected="false" role="tab"
+			   tabindex="-1"><i data-feather='map'></i> Opciones</a>
+		</li>
+	</ul>
+	<div class="tab-content">
+		<div class="tab-pane active show" id="tab-1" role="tabpanel">
+			<h5 class="tab-title">Lista de Programas</h5>
+			<p>
+			<table class="table table-hover" id='tabla-listado' style="width: 100%;">
+				<thead>
+				<tr>
+					<th>#</th>
+					<th>Icono</th>
+					<th>Programa</th>
+					<th>Descripci&oacute;n</th>
+					<th>Menu</th>
+					<th>Autenticado</th>
+					<th>Orden</th>
+					<th class="text-right">Acciones</th>
+				</tr>
+				</thead>
+				<tbody>
+
+				</tbody>
+			</table>
+			</p>
+		</div>
+		<div class="tab-pane fade col-md-6" id="tab-2" role="tabpanel">
+			<h5 class="mb-3 card-title">Crear Modificar Programas</h5>
+			<form class="form" role="form" name='frm' id='frm' autocomplete="off">
+				<div class="row">
+					<div class="mb-3 col-md-6">
+						<div class="form-group">
+							<label>Programa</label>
+							<input type="text" class="form-control" id="programa" name='programa' autocomplete="off"
+								   required>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="mb-3 col-12 col-sm-6 col-md-12 ">
+						<div class="form-group">
+							<label>Descripci&oacute;n</label>
+							<input type="text" class="form-control" id="descripcion" name='descripcion' required>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="mb-3 col-md-4">
+						<div class="form-group">
+							<label>Menu</label>
+							<select class="form-control" id="id_menu" name='id_menu' required>
+								<option value="">Seleccione</option>
+							</select>
+						</div>
+					</div>
+					<div class="mb-3 col-md-4">
+						<div class="form-group">
+							<label>Orden</label>
+							<input type="number" class="form-control" id="orden" name='orden' required>
+						</div>
+					</div>
+					<div class="mb-3 col-md-4">
+						<div class="form-group">
+							<label>Icono</label>
+							<input type="text" class="form-control" id="prog_icon" name='prog_icon' required>
+							<a href="node_modules/adminkit-pro/static/icons-font-awesome.html" target="_blank">Ver ejemplos</a>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="mb-3 col-md-6">
+						<div class="form-group">
+							<div class="form-check form-switch">
+								<input class="form-check-input" type="checkbox" id="autenticado" value="S" name="autenticado">
+								<label class="form-check-label" for="autenticado">Autenticado</label>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</form>
+			<div class="pull-right">
+				<a href="JAVASCRIPT:void(0)" class="btn btn-success" id='grabar-programa'><i class="fa fa-floppy-o"></i>
+					Grabar</a>
+				<a href="JAVASCRIPT:void(0)" class="btn btn-warning" id='limpiar-formulario'><i
+						class="fa fa-arrow-circle-o-right"></i> Limpiar</a>
+			</div>
+		</div>
+		<div class="tab-pane fade col-md-6" id="tab-3" role="tabpanel">
+			<h5 class="mb-3 card-title">Opciones de programa</h5>
+			<form class="form" role="form" name='frm-opciones' id='frm-opciones' autocomplete="off">
+				<div class="row">
+					<div class="mb-3 col-md-3">
+						<div class="form-group">
+							<label>Programa</label>
+							<input type="text" class="form-control" name='id-programa' autocomplete="off"
+								   required readonly>
+						</div>
+					</div>
+					<div class="mb-3 col-6 col-sm-3 col-md-3 ">
+						<div class="form-group">
+							<label>Opci&oacute;n</label>
+							<input type="text" class="form-control" name='opcion' required>
+						</div>
+					</div>
+					<div class="mb-3 col-6 col-sm-3 col-md-3 ">
+						<div class="form-group">
+							<label>Descripci&oacute;n</label>
+							<input type="text" class="form-control" name='descripcion' required>
+						</div>
+					</div><div class="mb-3 col-6 col-sm-3 col-md-3 ">
+						<div class="form-group">
+							<label>Descripci&oacute;n</label>
+							<a href="JAVASCRIPT:void(0)" class="btn btn-success" id='grabar-opcion'><i class="fa fa-floppy-o"></i>
+								Grabar</a>
+						</div>
+					</div>
+				</div>
+			</form>
+			<div class="pull-right">
+
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,205 @@
+<div class="container">
+<ol class="breadcrumb pull-right">
+	<li class="breadcrumb-item"><a href="inicio">Inicio</a></li>
+	<li class="breadcrumb-item active">Estimacion</li>
+</ol>
+<h1 class="page-header">Estimación <small>Estimación de proyectos</small></h1>
+
+
+
+<div class="panel panel-inverse">
+	<!-- begin panel-heading -->
+	<div class="panel-heading">
+		<div class="panel-heading-btn">
+			<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+			<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+		</div>
+		<h4 class="panel-title">Proyectos activos</h4>
+	</div>
+	<!-- end panel-heading -->
+
+	<div class="panel-body"> <!-- INSERTAR HTML AQUI-->
+
+		<form class="form" role="form" name='frm' id='frm'>
+			<table class="table table-hover table-condensed" id='tabla-proyectos'>
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Nombre</th>
+						<th>Descripción</th>
+						<th>Cliente</th>
+						<th class="text-right">Acciones</th>
+					</tr>
+				</thead>
+				<tbody>
+
+				</tbody>
+			</table>
+			<div class='pull-right'>
+				<button type="button" class="btn btn-success" id='nuevoProyecto'><i class="fa fa-plus" ></i> Nuevo</button>
+			</div>
+		</form>
+
+	</div><!-- end panel-body -->
+</div>
+</div>
+
+<div class="panel panel-inverse panel-detalle-proyecto">
+	<!-- begin panel-heading -->
+	<div class="panel-heading">
+		<div class="panel-heading-btn">
+			<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+			<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+		</div>
+		<h4 class="panel-title">Detalle del proyecto</h4>
+	</div>
+	<!-- end panel-heading -->
+
+	<div class="panel-body"> <!-- INSERTAR HTML AQUI-->
+		<div class="row">
+			<div class="col-12">
+			<fieldset>
+				<legend class="mb-3">Proyecto</legend>
+				<form class="row row-cols-lg-auto" role="form" name='frm' id='frm-proyecto'>
+					<div class="col-sm-1">
+						<input class="form-control input-sm id-proyecto" type="text" name="id" readonly="" placeholder="Id">
+					</div>
+					<div class="col-sm-2">
+						<input class="form-control nombre-proyecto" type="text" placeholder="Nombre del proyecto" name="nombre" >
+					</div>
+					<div class="col-sm-4">
+						<input class="form-control descripcion-proyecto" type="text" placeholder="Descripción del proyecto" name="descripcion" >
+					</div>
+					<div class="col-sm-3">
+						<select class="form-control cliente-proyecto"  placeholder="Descripción del proyecto" name="cliente" ></select>
+					</div>
+					<div class="col-sm-2">
+						<button type="button" class="btn btn-success" id='actualizaProyecto'><i class="fa fa-save" ></i> Actualizar</button>
+					</div>
+				</form>
+			</fieldset>
+			</div>
+			<div class="col-12"><hr><br></div>
+			<div class="col-4">
+				<fieldset>
+					<legend class="mb-3">Influencias</legend>
+					<form class="form" role="form" name='frm' id='frm-influencias'>
+						<table class="table table-hover table-condensed" id='tabla-influencias'>
+							<thead>
+							<tr>
+								<th>Id</th>
+								<th>Influencia</th>
+								<th>Grado de dificultad</th>
+							</tr>
+							</thead>
+							<tbody>
+
+							</tbody>
+						</table>
+						<datalist id="tickmarks">
+							<option value="0">
+							<option value="1">
+							<option value="2">
+							<option value="3">
+							<option value="4">
+							<option value="5">
+						</datalist>
+						<div class='pull-right'>
+							<button type="button" class="btn btn-success" id='guardarInfluencias'><i class="fa fa-save" ></i> Guardar</button>
+						</div>
+					</form>
+				</fieldset>
+			</div> <!--Influencias -->
+			<div class="col-4">
+				<fieldset>
+					<legend class="mb-3">Entidades</legend>
+
+					<table class="table table-hover table-condensed" id='tabla-entidades'>
+						<thead>
+						<tr>
+							<th>Id</th>
+							<th>Nombre</th>
+							<th class="text-right">Acciones</th>
+						</tr>
+						</thead>
+						<tbody>
+
+						</tbody>
+					</table>
+					<form class="row row-cols-lg-auto pull-right" role="form" name='frm' id='frm-entidades'>
+						<div class="col-6">
+							<input type="hidden" class="form-control id-entidad" name="id" value="0" >
+							<input type="text" class="form-control nombre-entidad" name="entidad" value="" placeholder="Nueva entidad">
+						</div>
+						<div class="col-6">
+							<button type="button" class="btn btn-success" id='nuevoEntidad'><i class="fa fa-save" ></i> Guardar</button>
+						</div>
+					</form>
+				</fieldset>
+			</div> <!--Entidades-->
+			<div class="col-3">
+				<fieldset>
+					<legend class="mb-3">Estimación
+						<a href="javascript:void(0)" class="btn btn-icon-toggle" title="Refrescar estimación" onclick="estimacion.estimarProyecto()"> <i class="fa fa-cog fa-fw fa-spin fa-2x"></i></a>
+					</legend>
+					<div class="row h4">
+						<div class="col-4">Precio</div><div class="col-8 text-orange-darker precio-estimacion text-right">0</div>
+						<div class="col-4">Horas</div><div class="col-8 text-orange-darker horas-estimacion text-right">0</div>
+						<div class="col-4">Semanas</div><div class="col-8 text-orange-darker semanas-estimacion text-right">0</div>
+					</div>
+
+
+				</fieldset>
+			</div> <!--Estimacion-->
+			<div class="col-8">
+			<fieldset>
+				<legend class="mb-3">Funciones</legend>
+					<table class="table table-hover table-condensed" id='tabla-funciones'>
+						<thead>
+						<tr>
+							<th>Id</th>
+							<th>Nombre</th>
+							<th>Entidades</th>
+							<th>Entradas</th>
+							<th>Salidas</th>
+							<th>Tipo</th>
+							<th class="text-right">Acciones</th>
+						</tr>
+						</thead>
+						<tbody>
+
+						</tbody>
+					</table>
+				<form class="row row-cols-lg-auto " role="form" name='frm' id='frm-funciones'>
+					<div class="col-3">
+						<input type="hidden" class="form-control id-funcion" name="id" value="0" >
+						<input type="text" class="form-control nombre-funcion" name="funcion" value="" placeholder="Funcion" tabindex="1">
+					</div>
+					<div class="col-2">
+						<input type="number" class="form-control entidades-funcion" name="entidades" value="" placeholder="Entidades" tabindex="2">
+					</div>
+					<div class="col-2">
+						<input type="number" class="form-control entradas-funcion" name="entradas" value="" placeholder="Entradas" tabindex="3">
+					</div>
+					<div class="col-2">
+						<input type="number" class="form-control salidas-funcion" name="salidas" value="" placeholder="Salidas" tabindex="4">
+					</div>
+					<div class="col-2">
+						<select class="form-control tipo-funcion" name="tipo" value="" placeholder="Tipo de funcion" tabindex="5">
+							<option value="">Seleccione</option>
+							<option value="LINEA">LINEA</option>
+							<option value="LOTE">LOTE</option>
+						</select>
+					</div>
+					<div class="col-1">
+						<button type="button" class="btn btn-success" id='nuevoFuncion' tabindex="6"><i class="fa fa-save" ></i></button>
+					</div>
+				</form>
+			</fieldset>
+			</div> <!--Funciones-->
+
+		</div>
+	</div><!-- end panel-body -->
+</div>
+</div>
+

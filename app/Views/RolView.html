@@ -1,0 +1,107 @@
+
+
+<div class="row">
+	<div class="col-md-6"> 
+	<div class="col-md-12">
+		<div class="panel panel-inverse">
+			<div class="panel-heading">
+				<div class="panel-heading-btn">
+					<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+					<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+					<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+				</div>
+				<h4 class="panel-title">Crear Rol</h4>
+			</div>
+			<div class="panel-body">
+				<form class="form" role="form" name='frm' id='frm'>
+				
+				<div class="form-group">
+					<label>Rol</label>
+					<input type="text" class="form-control" id="rol" name='rol' required/>
+				</div>
+				<div class="form-group">
+					<label>Descripcion</label>
+					<input type="text" class="form-control" id="descripcion" name='descripcion' required data-rule-minlength="5"/>
+				</div>
+				<div class="form-group">
+					<label>Usuario</label>				
+					<select multiple="multiple" id="usuarios" name="usuarios" class="form-control select2">
+					</select>
+				</div>
+				<div class="checkbox checkbox-css m-b-20">					
+					<input type="checkbox" name="estado" id="estado" value='A'>
+					<label for="estado">Activo</label>
+				</div>
+				<div class='pull-right'>
+					<a href="JAVASCRIPT:void(0)" class="btn btn-primary" id='grabar-formulario'><i class="fa fa-save" ></i> Grabar</a>
+					<a href="JAVASCRIPT:void(0)" class="btn btn-warning" id='limpiar-formulario'><i class="fa fa-arrow-circle-o-right" ></i> Limpiar</a>
+				</div>
+				</form>
+			</div>
+		</div>
+	</div>
+		<div class="col-md-12">
+		<div class="panel panel-inverse">
+			<div class="panel-heading">
+				<div class="panel-heading-btn">
+					<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+					<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+					<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+				</div>
+				<h4 class="panel-title">Lista de Programas</h4>
+			</div>
+			<div class="panel-body">			
+				<div class="form-group">
+					<select multiple="multiple" id="permisos" name="permisos" class="form-control select2"></select>
+				</div>		
+				<div class='pull-right'>
+					<a href="JAVASCRIPT:void(0)" class="btn btn-primary" id='grabar-permisos'><i class="fa fa-save" ></i> Grabar</a>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	</div>
+
+	
+	<div class="col-md-6">
+		<div class="panel panel-inverse">
+			<div class="panel-heading">
+				<div class="panel-heading-btn">
+					<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+					<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+					<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+				</div>
+				<h4 class="panel-title">Lista de Roles</h4>
+			</div>
+			<div class="panel-body">
+
+				<div class="btn-group pull-right">
+					<a href="#" class="btn btn-white btn-sm width-90">Filtrar</a>
+					<a href="#" class="btn btn-white btn-sm dropdown-toggle width-30 no-caret" data-toggle="dropdown" aria-expanded="false">
+						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu pull-right" x-placement="top-start">
+						<li><a href="javascript:void(0);" id="listar-activos">Activos</a></li>
+						<li><a href="javascript:void(0);" id="listar-inactivos">Inactivos</a></li>
+					</ul>
+				</div>
+				<table class="table table-hover" id='tabla-listado'>
+					<thead>
+						<tr>
+							<th>rol</th>
+							<th>Descripcion</th>
+							<th class="text-right">Acciones</th>
+						</tr>
+					</thead>
+					<tbody>
+
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+</div>
+</div>
+

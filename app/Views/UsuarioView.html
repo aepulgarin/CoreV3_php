@@ -1,0 +1,111 @@
+<h1 class="mb-3 h3 align-middle">Usuarios</h1>
+<div class="tab" id="tab-usuario">
+	<ul class="nav nav-tabs" role="tablist">
+		<li class="nav-item" role="presentation">
+			<a class="nav-link active" data-bs-toggle="tab" href="#tab-1" aria-selected="false" role="tab"
+				tabindex="-1"><i data-feather='edit'></i> Editar</a>
+		</li>
+		<li class="nav-item" role="presentation">
+			<a class="nav-link" data-bs-toggle="tab" href="#tab-2" aria-selected="true" role="tab"><i
+					data-feather='list'></i> Listado</a>
+		</li>
+	</ul>
+	<div class="tab-content">
+		<div class="tab-pane active show col-md-6" id="tab-1" role="tabpanel">
+			<h5 class="mb-3 card-title">Crear Modificar Usuario</h5>
+			<form class="form" role="form" name='frm' id='frm' autocomplete="off">
+				<div class="row">
+					<div class="mb-3 col-md-6">
+						<div class="form-group">
+							<label>Usuario</label>
+							<input type="text" class="form-control" id="usuario" name='usuario' autocomplete="off"
+								required>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="mb-3 col-6 col-sm-3 col-md-6 ">
+						<div class="form-group">
+							<label>Nombre</label>
+							<input type="text" class="form-control" id="nombre" name='nombre' required>
+						</div>
+					</div>
+					<div class="mb-3 col-6 col-sm-3 col-md-6 ">
+						<div class="form-group">
+							<label>Apellido</label>
+							<input type="text" class="form-control" id="apellidos" name='apellidos' required>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="mb-3 col-md-12">
+						<div class="form-group">
+							<label>Correo</label>
+							<input type="email" class="form-control" id="correo" name='correo' required>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="mb-3 col-6 col-sm-3 col-md-6">
+						<div class="form-group">
+							<label>Contraseña</label>
+							<input type="password" class="form-control pass" id="password1" name="password1"
+								autocomplete="off">
+						</div>
+					</div>
+					<div class="mb-3 col-6 col-sm-3 col-md-6">
+						<div class="form-group">
+							<label title="Confirmar contraseña">Contraseña2</label>
+							<input type="password" class="form-control pass" id="password2" name="password2">
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="mb-3 col-md-6">
+						<div class="form-group">
+							<div class="form-check form-switch">
+								<input class="form-check-input" type="checkbox" id="estado" value="A" name="estado">
+								<label class="form-check-label" for="estado">Activo</label>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</form>
+			<div class="pull-right">
+				<a href="JAVASCRIPT:void(0)" class="btn btn-success" id='grabar-usuario'><i class="fa fa-floppy-o"></i>
+					Grabar</a>
+				<a href="JAVASCRIPT:void(0)" class="btn btn-warning" id='limpiar-formulario'><i
+						class="fa fa-arrow-circle-o-right"></i> Limpiar</a>
+			</div>
+		</div>
+		<div class="tab-pane fade" id="tab-2" role="tabpanel">
+			<h5 class="tab-title">Lista de Usuarios</h5>
+			<p>
+			<div class="mb-3 row">
+				<label class="col-form-label col-md-1 text-sm-end">Estado</label>
+				<div class="col-md-3">
+					<select class="form-control " name="estado_lista" id="listar-usuarios">
+						<option value="A">Activos</option>
+						<option value="I">Inactivos</option>
+					</select>
+				</div>
+			</div>
+			<table class="table table-hover" id='tabla-listado' style="width: 100%;">
+				<thead>
+					<tr>
+						<th>Usuario</th>
+						<th>Nombre</th>
+						<th>Apellidos</th>
+						<th>Correo</th>
+						<th class="text-right">Acciones</th>
+					</tr>
+				</thead>
+				<tbody>
+
+				</tbody>
+			</table>
+			</p>
+		</div>
+	</div>
+</div>

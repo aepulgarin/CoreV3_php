@@ -16,6 +16,10 @@
                 self.traerMenus();
                 self.listarProgramas();
 
+                //carga controlador de programasOpciones
+                $.getScript('public/ControllersJS/ProgramaOpcionController.js');
+                $.getScript('public/ControllersJS/MenuController.js');
+
                 $("#tabla-listado").DataTable({
                     responsive: true
                 });
@@ -29,7 +33,7 @@
                         return;
                     }
 
-                    ajaxRequest(frm, 'post', 'grabarPrograma', 'programa').done(function (response) {
+                    ajaxRequest(frm, 'post', 'grabarPrograma', 'Programa').done(function (response) {
                         if (response.success === true) {
                             notyf.success(response.data);
                             $("#limpiar-formulario").click();
@@ -45,7 +49,7 @@
                 return;
             },
             listarProgramas: function () {
-                ajaxRequest({  }, 'post', 'traerLista', 'programa').done(function (response) {
+                ajaxRequest({}, 'post', 'traerLista', 'Programa').done(function (response) {
                     if (response.success === false) {
                         Core.ErrorSistema(response.mensaje);
                         return;
@@ -59,8 +63,9 @@
                         },
                         "aoColumns": [
                             { "mDataProp": "id" },
-                            { "mDataProp": "prog_icon","render":function(data, type, row){
-                                    return " <i class='fa fa-"+row.prog_icon+"'></i> <small>"+row.prog_icon+"</small>";
+                            {
+                                "mDataProp": "prog_icon", "render": function (data, type, row) {
+                                    return " <i class='fa fa-" + row.prog_icon + "'></i> <small>" + row.prog_icon + "</small>";
                                 }
                             },
                             { "mDataProp": "programa" },
@@ -88,55 +93,58 @@
                 });
             },
             traerMenus: function () {
-                ajaxRequest({  }, 'post', 'traerMenus', 'menu').done(function (response) {
+                ajaxRequest({}, 'post', 'traerMenus', 'Menu').done(function (response) {
                     if (response.success === false) {
                         Core.ErrorSistema(response.mensaje);
                         return;
                     }
-                        $.each(response.data, function (index, val) {
-                            $("#tab-programa #frm select[name=id_menu]")
-                                .append($("<option></option>")
-                                    .attr("value", val.id)
-                                    .text(val.des_mod));
-                        });
+                    $.each(response.data, function (index, val) {
+                        $("#tab-programa #frm select[name=id_menu]")
+                            .append($("<option></option>")
+                                .attr("value", val.id)
+                                .text(val.des_mod));
+                    });
 
                 });
             },
             mostrarPrograma: function (id_programa) {
-                let data=$("#TR"+id_programa).data('info');
+                let data = $("#TR" + id_programa).data('info');
                 $.each(data, function (index, val) {
-                    switch(index){
+                    switch (index) {
                         case 'autenticado':
-                            let ch =(val=='S');
-                            $("#tab-programa #frm input[name="+index+"]").prop('checked',ch);
+                            let ch = (val == 'S');
+                            $("#tab-programa #frm input[name=" + index + "]").prop('checked', ch);
                             break;
                         case 'id_menu':
-                            $("#tab-programa #frm select[name="+index+"]").val(val);
+                            $("#tab-programa #frm select[name=" + index + "]").val(val);
                             break;
                         default:
-                            $("#tab-programa #frm input[name="+index+"]").val(val);
+                            $("#tab-programa #frm input[name=" + index + "]").val(val);
                             break;
                     }
 
                 });
+                ProgramaOpcionController.listarOpcionesPrograma(id_programa);
 
                 $('.nav-tabs a[href="#tab-2"]').tab('show');
             },
             borrarPrograma: function (id_programa) {
                 let self = this;
-                ajaxRequest({ 'id':id_programa }, 'post', 'borrarPrograma', 'programa').done(function (response) {
-                    if (response.success === false) {
-                        Core.ErrorSistema(response.mensaje);
-                        return;
-                    }
-                    notyf.success(response.data);
-                    self.listarProgramas();
+                if(confirm("Esta seguro de eliminar este registro?")) {
+                    ajaxRequest({'id': id_programa}, 'post', 'borrarPrograma', 'Programa').done(function (response) {
+                        if (response.success === false) {
+                            Core.ErrorSistema(response.mensaje);
+                            return;
+                        }
+                        notyf.success(response.data);
+                        self.listarProgramas();
 
 
-                });
+                    });
+                }
             }
         }
     })()
 
-    if (Core.GetUrlParameter('modulo') == 'programa') ProgramaController.Initialize()
+    if (Core.GetUrlParameter('modulo') == 'Programa') ProgramaController.Initialize()
 })(document, window, jQuery, Core)

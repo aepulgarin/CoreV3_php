@@ -16,15 +16,15 @@ $Core=new  mainController();
 $_REQUEST=$Core->sanitize($_REQUEST);
 
 $tipo = $_REQUEST['tipo']??'';
-$modulo = strtolower(trim($_REQUEST['modulo']??''));
-$nameModel =ucfirst($modulo);
+$modulo = (trim($_REQUEST['modulo']??''));
+$nameModel =($modulo);
 $metodo = $_REQUEST['metodo']??'';
 $token = $_REQUEST['token']??'';
 $parametros = $_REQUEST['parametros']??'';
 $user = $_REQUEST['user']??'';
 
 $Programa = new ProgramaModel();
-$data=$Programa->readOneByColumn('programa',strtoUpper($modulo));
+$data=$Programa->readOneByColumn('programa',($modulo));
 if($user!=''){
 	$_SESSION['usuario']=$user;
 }

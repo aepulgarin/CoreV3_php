@@ -32,7 +32,7 @@
 			},
 
 			buscarUsuario: function (usuario) {
-				ajaxRequest({ "usuario": usuario }, 'post', 'traerUsuario', 'usuario').done(function (response) {
+				ajaxRequest({ "usuario": usuario }, 'post', 'traerUsuario', 'Usuario').done(function (response) {
 					if (response.success == false) {
 						Core.ErrorSistema(response.mensaje);
 						return;
@@ -60,7 +60,7 @@
 						return;
 					}
 
-					ajaxRequest(frm, 'post', 'grabarUsuario', 'usuario').done(function (response) {
+					ajaxRequest(frm, 'post', 'grabarUsuario', 'Usuario').done(function (response) {
 						if (response.success === true) {
 							notyf.success("Usuario grabado");
 							$("#limpiar-formulario").click();
@@ -77,7 +77,7 @@
 			},
 
 			listarUsuarios: function (estado) {
-				ajaxRequest({ "estado": estado }, 'post', 'traerLista', 'usuario').done(function (response) {
+				ajaxRequest({ "estado": estado }, 'post', 'traerLista', 'Usuario').done(function (response) {
 					if (response.success === false) {
 						Core.ErrorSistema(response.mensaje);
 						return;
@@ -118,5 +118,5 @@
 		}
 	})()
 
-	if (Core.GetUrlParameter('modulo') == 'usuario') UsuarioController.Initialize()
+	if (Core.GetUrlParameter('modulo') == 'Usuario') UsuarioController.Initialize()
 })(document, window, jQuery, Core)

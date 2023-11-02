@@ -1,17 +1,26 @@
 <h1 class="mb-3 h3 align-middle">Usuarios</h1>
 <div class="tab" id="tab-usuario">
 	<ul class="nav nav-tabs" role="tablist">
+
 		<li class="nav-item" role="presentation">
-			<a class="nav-link active" data-bs-toggle="tab" href="#tab-1" aria-selected="false" role="tab"
-				tabindex="-1"><i data-feather='edit'></i> Editar</a>
+			<a class="nav-link active" data-bs-toggle="tab" href="#tab-2" aria-selected="true" role="tab"><i
+					data-feather='list'></i> Listado</a>
 		</li>
 		<li class="nav-item" role="presentation">
-			<a class="nav-link" data-bs-toggle="tab" href="#tab-2" aria-selected="true" role="tab"><i
-					data-feather='list'></i> Listado</a>
+			<a class="nav-link" data-bs-toggle="tab" href="#tab-1" aria-selected="false" role="tab"
+			   tabindex="-1"><i data-feather='user-plus'></i> Editar</a>
+		</li>
+		<li class="nav-item" role="presentation">
+			<a class="nav-link" data-bs-toggle="tab" href="#tab-3" aria-selected="true" role="tab"><i
+					data-feather='check-circle'></i> Permisos</a>
+		</li>
+		<li class="nav-item" role="presentation">
+			<a class="nav-link" data-bs-toggle="tab" href="#tab-3" aria-selected="true" role="tab"><i
+					data-feather='users'></i> Roles</a>
 		</li>
 	</ul>
 	<div class="tab-content">
-		<div class="tab-pane active show col-md-6" id="tab-1" role="tabpanel">
+		<div class="tab-pane fade col-md-6" id="tab-1" role="tabpanel">
 			<h5 class="mb-3 card-title">Crear Modificar Usuario</h5>
 			<form class="form" role="form" name='frm' id='frm' autocomplete="off">
 				<div class="row">
@@ -79,7 +88,7 @@
 						class="fa fa-arrow-circle-o-right"></i> Limpiar</a>
 			</div>
 		</div>
-		<div class="tab-pane fade" id="tab-2" role="tabpanel">
+		<div class="tab-pane active show " id="tab-2" role="tabpanel">
 			<h5 class="tab-title">Lista de Usuarios</h5>
 			<p>
 			<div class="mb-3 row">

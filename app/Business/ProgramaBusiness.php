@@ -24,12 +24,14 @@ class ProgramaBusiness extends \Core\mainBusiness{
 			foreach($dataMenuLateral as $menus){
 				$htmlMenu.="<li class='sidebar-header'>{$menus->nombre}</li>";
 				foreach($menus->progs as $progs){
-					$htmlMenu.="<li class='sidebar-item'>
-									<a class='sidebar-link' href='index.php?modulo=".strtolower($progs->programa)."'>
+                    if(file_exists("app/Views/{$progs->programa}View.html")) {
+                        $htmlMenu .= "<li class='sidebar-item'>
+									<a class='sidebar-link' href='index.php?modulo=" . ($progs->programa) . "'>
 										<i class='align-middle fa fa-{$progs->prog_icon}'></i> <span
-											class='align-middle'>".ucwords(strtolower($progs->descripcion))."</span>
+											class='align-middle'>" . ucwords(strtolower($progs->descripcion)) . "</span>
 									</a>
 								</li>";
+                    }
 				}
 			}
 			return $htmlMenu;

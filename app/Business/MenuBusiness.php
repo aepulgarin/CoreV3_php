@@ -11,6 +11,20 @@ class MenuBusiness extends \Core\mainBusiness
     {
         return $this->Menu->readManyByColumn(
             (object)['1'=>1],
-            'des_mod');
+            'orden');
+    }
+    public function grabarMenu(object $param):int
+    {
+        return $this->Menu->createOne([
+            $param->id_sub,
+            '',
+            $param->des_mod,
+            $param->orden,
+        ]);
+    }
+
+    public function borrarMenu(object $param):int
+    {
+        return $this->Menu->deleteOneById($param->id);
     }
 }

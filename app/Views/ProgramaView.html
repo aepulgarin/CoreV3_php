@@ -13,6 +13,10 @@
 			<a class="nav-link" data-bs-toggle="tab" href="#tab-3" aria-selected="false" role="tab"
 			   tabindex="-1"><i data-feather='map'></i> Opciones</a>
 		</li>
+		<li class="nav-item" role="presentation">
+			<a class="nav-link" data-bs-toggle="tab" href="#tab-4" aria-selected="false" role="tab"
+			   tabindex="-1"><i data-feather='menu'></i> Men&uacute;s</a>
+		</li>
 	</ul>
 	<div class="tab-content">
 		<div class="tab-pane active show" id="tab-1" role="tabpanel">
@@ -93,7 +97,7 @@
 
 			</form>
 			<div class="pull-right">
-				<a href="JAVASCRIPT:void(0)" class="btn btn-success" id='grabar-programa'><i class="fa fa-floppy-o"></i>
+				<a href="JAVASCRIPT:void(0)" class="btn btn-success" id='grabar-programa'><i class="fa fa-floppy-disk"></i>
 					Grabar</a>
 				<a href="JAVASCRIPT:void(0)" class="btn btn-warning" id='limpiar-formulario'><i
 						class="fa fa-arrow-circle-o-right"></i> Limpiar</a>
@@ -123,16 +127,81 @@
 						</div>
 					</div><div class="mb-3 col-6 col-sm-3 col-md-3 ">
 						<div class="form-group">
-							<label>Descripci&oacute;n</label>
-							<a href="JAVASCRIPT:void(0)" class="btn btn-success" id='grabar-opcion'><i class="fa fa-floppy-o"></i>
+							<br>
+							<a href="JAVASCRIPT:void(0)" class="btn btn-success" id='grabar-opcion'><i class="fa fa-floppy-disk"></i>
 								Grabar</a>
 						</div>
 					</div>
 				</div>
 			</form>
-			<div class="pull-right">
+			<p>
+			<table class="table table-hover" id='tabla-opciones' style="width: 100%;">
+				<thead>
+				<tr>
+					<th>#</th>
+					<th>id_programa</th>
+					<th>opcion</th>
+					<th>Descripci&oacute;n</th>
+					<th class="text-right">Acciones</th>
+				</tr>
+				</thead>
+				<tbody>
 
-			</div>
+				</tbody>
+			</table>
+			</p>
+		</div>
+		<div class="tab-pane fade col-md-8" id="tab-4" role="tabpanel">
+			<h5 class="mb-3 card-title">Men&uacute;s</h5>
+			<form class="form" role="form" name='frm-menu' id='frm-menu' autocomplete="off">
+				<input type="hidden" name='id'>
+				<div class="row">
+					<div class="mb-3 col-md-3">
+						<div class="form-group">
+							<label>Menu</label>
+							<input type="text" class="form-control" name='des_mod' autocomplete="off"
+								   required>
+						</div>
+					</div>
+					<div class="mb-3 col-md-3">
+						<div class="form-group">
+							<label>SubMenu</label>
+							<select class="form-control" name='id_sub' required>
+								<option value="0">Sin subMenu</option>
+							</select>
+						</div>
+					</div>
+					<div class="mb-3 col-md-3">
+						<div class="form-group">
+							<label>Orden</label>
+							<input type="number" class="form-control" name='orden' required>
+						</div>
+					</div>
+					<div class="mb-3 col-6 col-sm-2 col-md-3 ">
+						<div class="form-group">
+							<br>
+							<a href="JAVASCRIPT:void(0)" class="btn btn-success" id='grabar-menu'><i class="fa fa-floppy-disk"></i>
+								Grabar</a>
+						</div>
+					</div>
+				</div>
+			</form>
+			<p>
+			<table class="table table-hover" id='tabla-menus' style="width: 100%;">
+				<thead>
+				<tr>
+					<th>#</th>
+					<th>Menu</th>
+					<th>SubMenu</th>
+					<th>Orden</th>
+					<th class="text-right">Acciones</th>
+				</tr>
+				</thead>
+				<tbody>
+
+				</tbody>
+			</table>
+			</p>
 		</div>
 	</div>
 </div>

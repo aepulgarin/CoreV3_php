@@ -401,8 +401,11 @@ abstract class mainModel
             $columnsWhere .=', '.$key.'=?';
         }
         $columnsWhere=substr($columnsWhere,1);
+        if($order!=''){
+            $order =" ORDER BY $order";
+        }
 
-        return $this->lee_prepare("SELECT * from {$this->table} where $columnsWhere",
+        return $this->lee_prepare("SELECT * from {$this->table} where $columnsWhere $order",
             $values);
     }
     public function updateOneById(array $data, int $id):int{

@@ -15,7 +15,7 @@
 					data-feather='check-circle'></i> Permisos</a>
 		</li>
 		<li class="nav-item" role="presentation">
-			<a class="nav-link" data-bs-toggle="tab" href="#tab-3" aria-selected="true" role="tab"><i
+			<a class="nav-link" data-bs-toggle="tab" href="#tab-4" aria-selected="true" role="tab"><i
 					data-feather='users'></i> Roles</a>
 		</li>
 	</ul>
@@ -30,6 +30,11 @@
 							<input type="text" class="form-control" id="usuario" name='usuario' autocomplete="off"
 								required>
 						</div>
+					</div>
+					<div class="mb-3 col-md-6">
+						<label>Rol</label>
+							<select class="form-control js-choice" name="roles" multiple>
+							</select>
 					</div>
 				</div>
 				<div class="row">
@@ -115,6 +120,22 @@
 				</tbody>
 			</table>
 			</p>
+		</div>
+		<div class="tab-pane fade" id="tab-3" role="tabpanel">
+			<h5 class="tab-title">Permisos a Roles</h5>
+
+		</div>
+		<div class="tab-pane fade" id="tab-4" role="tabpanel">
+			<h5 class="tab-title">Roles de Usuario</h5>
+			<div class="mb-3 row">
+				<label class="col-form-label col-md-1 text-sm-end">Usuario</label>
+				<div class="col-md-3">
+					<select class="form-control " name="usuarios" id="lista-usuarios-rol">
+						<option value="">Seleccione</option>
+					</select>
+				</div>
+			</div>
+
 		</div>
 	</div>
 </div>

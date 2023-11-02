@@ -1,6 +1,7 @@
 <?php
 namespace App\Business;
 use App\Models\UsuarioModel;
+use App\Business\UsuarioRolBusiness;
 use Carbon\Carbon;
 
 class UsuarioBusiness extends \Core\mainBusiness{
@@ -36,6 +37,7 @@ class UsuarioBusiness extends \Core\mainBusiness{
 
         $this->Usuario->begin_work();
         if($data->existe) {
+            $id_usuario = $data->id;
             $this->Usuario->updateOneById([
                 $nuevo->usuario,
                 (($frm->password1??'')!='')?$this->encodePassword($frm->password1):$data->usr_pass,
@@ -46,7 +48,7 @@ class UsuarioBusiness extends \Core\mainBusiness{
                 Carbon::today()->addDays(20)->toDateString(),
             ],$data->id);
         }else{
-            $this->Usuario->createOne([
+            $id_usuario=$this->Usuario->createOne([
                 $nuevo->usuario,
                 $this->encodePassword($frm->password1??''),
                 $nuevo->nombre,
@@ -56,6 +58,14 @@ class UsuarioBusiness extends \Core\mainBusiness{
                 null
             ]);
         }
+
+        //grabar roles asignados
+        $UsuarioRol = new UsuarioRolBusiness();
+        $UsuarioRol->grabarRolesUsuario((object)[
+            'id_usuario'=> $id_usuario,
+            'roles'=>$frm->roles??[]
+        ]);
+
         $this->Usuario->commit();
         return true;
     }

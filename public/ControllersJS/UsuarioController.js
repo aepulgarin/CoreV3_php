@@ -4,6 +4,7 @@
 			//INICIALIZACIÓN DE COMPONENTES
 			Initialize: function () {
 				let self = this;
+
 				$("#limpiar-formulario").click(function (event) {
 					$("#usuario").attr('readonly', false);
 					$("#frm")[0].reset();
@@ -25,6 +26,8 @@
 				});
 
 				$("#listar-usuarios").click();
+
+				self.selectRoles();
 
 				$("#tabla-listado").DataTable({
 					responsive: true
@@ -114,7 +117,19 @@
 			mostrarUsuario: function (usuario) {
 				$("#usuario").val(usuario).change();
 				$('.nav-tabs a[href="#tab-1"]').tab('show');
-			}
+			},
+			selectRoles: function (estado) {
+				ajaxRequest({"estado": estado}, 'post', 'traerRoles', 'Rol').done(function (response) {
+					$("#tab-1 select[name=roles]").html("<option value=''>Seleccione</option>");
+					$.each(response.data, function (index, val) {
+						$("#tab-1 select[name=roles]")
+							.append($("<option></option>")
+								.attr("value", val.id)
+								.text(val.nombre));
+					});
+					const choices = new Choices('.js-choice');
+				});
+			},
 		}
 	})()
 

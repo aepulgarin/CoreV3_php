@@ -16,4 +16,13 @@ class RolBusiness extends \Core\mainBusiness
             ],'nombre'
         );
     }
+
+    public function traerRoles($param):array
+    {
+        return $this->Rol->readManyByColumn(
+            (object)[
+                'estado'=>$param->estado??'A'
+            ],'nombre'
+        );
+    }
 }

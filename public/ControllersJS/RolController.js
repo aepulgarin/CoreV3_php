@@ -69,7 +69,7 @@
 				});
 			},
 
-			listarroles: function (estado) {
+			listarRoles: function (estado) {
 				ajaxRequest({"estado": estado}, 'post', 'traerLista', 'rol').done(function (response) {
 
 					$("#tabla-listado tbody").html("");
@@ -163,5 +163,5 @@
 		}
 	})()
 
-	if (Core.GetUrlParameter('modulo') === 'rol') RolController.Initialize()
+	if (Core.GetUrlParameter('modulo') === 'Usuario') RolController.Initialize()
 })(document, window, jQuery, Core)

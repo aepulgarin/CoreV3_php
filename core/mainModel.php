@@ -419,7 +419,7 @@ abstract class mainModel
             $id
         ]);
     }
-    public function deleteManyByColumn(object $dat, string $order):array{
+    public function deleteManyByColumn(object $dat):int{
         $columnsWhere='';
         $values=[];
         foreach($dat as $key => $dat){

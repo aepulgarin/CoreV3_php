@@ -2,26 +2,19 @@
 use App\Business\RolBusiness;
 $plantilla="layout.html";
 class RolController extends \Core\mainController{
-    public $Business;
+    public RolBusiness $Rol;
     public function __construct () {
-        $this->Business = new RolBusiness();
+        $this->Rol = new RolBusiness();
     }
 	function buscarRol($parametros){
 		$nombre=$parametros['nombre'];
 		$modelo= new rolModel($nombre);
 		$this->response($modelo);
 	}
-	function traerLista($parametros){
-        $result= [];
-        try {
-            $result['data'] = $this->Business->traerLista((object)$parametros);
-            $result['success']  = true;
-            $result['mensaje']  ='';
-        }catch (Exception $exception){
-            $result['success'] = false;
-            $result['mensaje'] = $exception->getMessage();
-        }
-        $this->response($result);
+	function traerRoles($parametros){
+        $this->defaultMethod(
+            $this->Rol->traerRoles((object)$parametros)
+        );
 	}
 	function grabarrol($parametros){
 		$frm=$parametros['frm'];

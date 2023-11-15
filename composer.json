@@ -1,5 +1,6 @@
 {
     "name": "aepulgarin/core3",
+    "description": "PHP Core MVC, basic functionalities",
     "require": {
         "doctrine/sql-formatter": ">=1.1.3",
         "nesbot/carbon": ">=2.71.0"
